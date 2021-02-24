@@ -14,7 +14,7 @@ library(readr)
 #Load the input file of the dose response relation
 #################################################
 
-path="original.xlsx"
+path="save_df_DR"
 df_DR=read_rds(path)
 
 #################################################
@@ -58,12 +58,6 @@ rosso=function(time,egrm,lag=0,x0,xmax){
 ###Mode_prop_rtime and Max_prop_rtime are respectively the mode and the maximum of the proportion 
 ###of the shelflife used as time of storage
 ###runs is the number of iterations
-runs =4
-shift =0
-meanTemp=5.9
-sdTemp=2.9
-Mode_prop_rtime=0.3
-Max_prop_rtime=1.1
 contamfun=function(runs,shift=0,meanTemp=5.9,
                    sdTemp=2.9,
                    Mode_prop_rtime=0.3,
@@ -238,8 +232,6 @@ contamfun=function(runs,shift=0,meanTemp=5.9,
   overall_prev=data_frame(prev=overall_prev,Path=DRP$Path,
                           population=DRP$population,
                           teo)
-  DoseCont <- seq(0, 12, 0.1)
-  step = 0.1
   #use of the pdf_dose function for all the subpopulations
   pdf_dose=sapply(1:14,doser_fun)
   #creating and organisation of a data-frame incuding the pdf of the doses
@@ -270,4 +262,3 @@ contamfun=function(runs,shift=0,meanTemp=5.9,
   #risk per serving, teo, and the expected number of cases
 } 
 ####End contam function
-

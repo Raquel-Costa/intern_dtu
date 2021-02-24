@@ -5,13 +5,14 @@ This repository includes the data and the analysis I performed during my master 
 
 #### Data  📔
 <ul>
-  <li><a href = ''></a>Serra da Estrela Cheese</a> - data regarding the product at retail level and consumer habits</li>
-  <li><a href=''>Population in Portugal between 2012 and 2020</a> - data of the number of portuguese population by year and by age</li>
+  <li><a href = 'https://github.com/Raquel-Costa/intern_dtu/blob/main/serra_da_estrela_cheese.xlsx'></a>Serra da Estrela Cheese</a> - data regarding the product at retail level and consumer habits</li>
+  <li><a href='https://github.com/Raquel-Costa/intern_dtu/blob/main/population_pt.csv'>Population in Portugal between 2012 and 2020</a> - data of the number of portuguese population by year and by age</li>
 </ul>
 
 
 #### Analysis Performed 🕵
 <ul>
-  <li><a href = ''>Classic QMRA</a> - QMRA performed on Serra da Estrela cheese data, based on EFSA QMRA for L.monocytogenes in RTE food products (gQMRA)</li>
-  <li><a href=''>Population in Portugal between 2009 and 2012</a> - analysis to get the average yearly portuguese population by age group</li>
+  <li><a href = 'https://github.com/Raquel-Costa/intern_dtu/blob/main/gQMRA.R'>Classic QMRA</a> - QMRA performed on Serra da Estrela cheese data, based on <a href = 'https://github.com/Raquel-Costa/intern_dtu/tree/main/original_EFSA'>EFSA QMRA for L.monocytogenes in RTE food products (gQMRA)</a></li>
+  <li><a href='https://github.com/Raquel-Costa/intern_dtu/blob/main/population_pt.R'>Population in Portugal between 2012 and 2020</a> - analysis to get the average yearly portuguese population by age group</li>
 </ul>
+
