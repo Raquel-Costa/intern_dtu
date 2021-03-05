@@ -2,6 +2,8 @@
 library(readxl) #used to read data
 library(mc2d) #used for the functions to obtain random samples
 library(dplyr)
+library(tidyr)
+library(MCMCglmm)
 
 #Serra da Estrela cheese data
 prev = read_excel("serra_da_estrela_cheese.xlsx", sheet = "prevalence") #data on prevalence of L.monocytogenes in the cheese
