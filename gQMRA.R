@@ -1,9 +1,9 @@
 #libraries
 library(readxl) #used to read data
-library(mc2d) #used for the functions to obtain random samples
 library(dplyr)
-library(tidyr)
-library(MCMCglmm)
+library(tidyr) #used to get the gather function
+library(mc2d) #used to get the functions to obtain random samples
+library(MCMCglmm) #used to get the functions to obtain random samples
 
 #Serra da Estrela cheese data
 prev = read_excel("serra_da_estrela_cheese.xlsx", sheet = "prevalence") #data on prevalence of L.monocytogenes in the cheese
@@ -17,13 +17,13 @@ DR = read_excel("serra_da_estrela_cheese.xlsx", sheet = "dose_response") #data o
 
 #Define the model variables
 runs=1000000 #number of times that some functions, which get random samples, will be run
-shift=0 #variable that allows testing alternative scenarios by changing this value to a number different than zero
+shift = 0 #variable that allows testing alternative scenarios by changing this value to a number different than zero
 options(digits=4) #when needed use 4 decimal places
 
 
 #Dose response model (Hazard characterization) -------------------------------------------------------------------------------------------
 
-##function that applies the Puoillot et al. 2015 lognormal exponential dose response model
+##function that applies the Pouillot et al. 2015 lognormal exponential dose response model
 DRLNDose <- function(r, Dose, meanlog, sdlog) {
   dnorm(r, meanlog, sdlog) * ((r>=0) *1 + (r<0) * (-expm1(-10^Dose * 10^r)))
 }
@@ -142,7 +142,7 @@ contamfun = function(runs, shift = 0){
   C0r=C0fun(1)
   
   
-  #apply the concentration at consumption formula with the 10^înitial concentration, 10^maximum concentration, time and EGR
+  #apply the concentration at consumption formula with the initial concentration, aximum concentration, time and EGR
   rosso=function(time,egrm,lag=0,x0,xmax){ 
     x0=10^x0 
     xmax=10^xmax
@@ -171,10 +171,8 @@ contamfun = function(runs, shift = 0){
   prevalence = data.frame(prevalence = prevalence_calculus, Path = DR$Path,
                                 TEO = conso$eating_occasions_year)
   
-  #function that calculates the probability of each expected dose (121 possible doses - from 0 to 12 by increments of 0.1) being ingested
+  #calculate the probability of each expected dose (121 possible doses - from 0 to 12 by increments of 0.1) being ingested
   dosei=t(t(f_concr)+log10(serving))
-
-    
   x=dosei[,1]
   pp=ecdf(x)
   pCont1=pp((DoseCont-(step/2)))
@@ -231,10 +229,5 @@ View(rescases)
 
 #see the total number of expected cases
 sum(rescases$cases)
-
-
-
-
-
 
 
