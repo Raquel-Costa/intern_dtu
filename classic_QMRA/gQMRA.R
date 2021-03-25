@@ -4,6 +4,7 @@ library(dplyr)
 library(tidyr) #used to get the gather function
 library(mc2d) #used to get the functions to obtain random samples
 library(MCMCglmm) #used to get the functions to obtain random samples
+library(Jmisc)
 
 #Serra da Estrela cheese data
 prev = read_excel("serra_da_estrela_cheese.xlsx", sheet = "prevalence") #data on prevalence of L.monocytogenes in the cheese
@@ -154,6 +155,7 @@ contamfun = function(runs, shift = 0){
     rosso(s_time,EGRr,C0r,lag=0,Nmax)
   }
   f_concr=f_concfun(1)
+  # f_concr=repRow(f_concr, 14)
   
   
   ##--Ingested dose--
@@ -164,7 +166,7 @@ contamfun = function(runs, shift = 0){
   }
   
   #apply the function above to all the rows to get the serving size for each age group (the same because our data doesn't make this differentiation)
-  serving = serving_fun(1)
+  serving = sapply(1:14, serving_fun)
   
   #calculate the prevalence of L.monocytogenes in the Serra da Estrela cheese and create a data frame with the information
   prevalence_calculus = prev[1,1]/prev[1,2]
@@ -172,18 +174,20 @@ contamfun = function(runs, shift = 0){
                                 TEO = conso$eating_occasions_year)
   
   #calculate the probability of each expected dose (121 possible doses - from 0 to 12 by increments of 0.1) being ingested
-  dosei=t(t(f_concr)+log10(serving))
-  x=dosei[,1]
-  pp=ecdf(x)
-  pCont1=pp((DoseCont-(step/2)))
-  pCont2=pp((DoseCont+(step/2)))
-  pdf=(pCont2-pCont1)
-  pdf[1]<-1-sum(pdf[-1])
-
+  ecdf_fun=function(j){
+    dosei=f_concr+t(log10(serving[,j]))
+    pp=ecdf(dosei)
+    pCont1=pp((DoseCont-(step/2)))
+    pCont2=pp((DoseCont+(step/2)))
+    pdf=(pCont2-pCont1)
+    pdf[1]<-1-sum(pdf[-1])
+    return(pdf)
+  }
+  prob_ingestion <- sapply(1:14, ecdf_fun)
   
   #create a data frame with the probabilities of ingested each dose but with all the populations in the same column
   df_pdf_dose= data.frame(population = rep(c("x1", "x2", "x3", "x4", "x5", "x6", "x7", "x8", "x9", "x10", "x11", "x12", "x13", "x14"), each=121),
-                          prob = rep(pdf,14))
+                          prob = c(prob_ingestion))
   
   #add a column with the population information
   path=data_frame(population=unique(df_pdf_dose$population),Path=DR$Path)
