@@ -16,14 +16,19 @@ This repository includes the data and the analysis I performed during my master 
   <li><a href='https://github.com/Raquel-Costa/intern_dtu/blob/main/classic_QMRA/population_pt.R'>Population in Portugal between 2012 and 2020</a> - analysis to get the average yearly portuguese population by age group</li>
 </ul>
 
+<br>
 
 ### QMRA based on genomic data
 #### Data  📔
 <ul>
   <li><a href = 'https://github.com/Raquel-Costa/intern_dtu/blob/main/genomic_data_QMRA/wgs_cheese_data.xlsx'>Cheese WGS samples</a> - whole genome sequencing data and additional information from cheese samples obtained from NCBI database and ENA browser</li>
+</ul>
+
   
 #### Analysis Performed 🕵
 <ul>
   <li><a href = 'https://github.com/Raquel-Costa/intern_dtu/blob/main/genomic_data_QMRA/assembly_quality.xlsx'>QC metrics </a> - quality control metrics from assembly performed on the WGS data on cheese</li>
+</ul>
+
   
   
