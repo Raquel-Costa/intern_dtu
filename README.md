@@ -21,13 +21,22 @@ This repository includes the data and the analysis I performed during my master 
 ### QMRA based on genomic data
 #### Data  📔
 <ul>
-  <li><a href = 'https://github.com/Raquel-Costa/intern_dtu/blob/main/genomic_data_QMRA/genomic_data.xlsx'>Cheese WGS samples</a> - whole genome sequencing data and additional information from cheese samples obtained from NCBI database and ENA browser</li>
+  <li><a href = 'https://github.com/Raquel-Costa/intern_dtu/blob/main/genomic_data_QMRA/genomic_data.xlsx'>Cheese WGS samples</a> - whole genome sequencing data and additional information from cheese samples obtained from NCBI database and ENA browser. The excel file contains multiple sheets:</li>
+  <ul>
+    <li>wgs_cheese_environ_multi – cheese, environmental and multi-ingredient samples available (all related to cheese)</li>
+    <li>wgs_cheese – cheese only samples available </li>
+    <li>wgs_data_download – samples downloaded to computerome</li>
+    <li>assembly_QC - quality control metrics after assembly</li>
+    <li>high_quality - assembled samples with less than 500 contigs</li>
+    <li>low_quality – assembled samples with more than 500 contigs</li>
+    <li>metadata_tree – auxiliar data regarding the samples to use on PHYLOViZ Online to build the tree</li>
+
 </ul>
 
   
 #### Analysis Performed 🕵
 <ul>
-  <li><a href = 'https://github.com/Raquel-Costa/intern_dtu/blob/main/genomic_data_QMRA/genomic_data.xlsx'>QC metrics </a> - quality control metrics from assembly performed on the WGS data on cheese on the assembly_QC sheet</li>
+  <li></li>
 </ul>
 
   
