@@ -30,14 +30,12 @@ This repository includes the data and the analysis I performed during my master 
     <li>high_quality - assembled samples with less than 500 contigs</li>
     <li>low_quality – assembled samples with more than 500 contigs</li>
     <li>metadata_tree – auxiliar data regarding the samples to use on PHYLOViZ Online to build the tree</li>
-
+  </ul>  
 </ul>
 
   
 #### Analysis Performed 🕵
-<ul>
-  <li></li>
-</ul>
+
 
   
   
