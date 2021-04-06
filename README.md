@@ -21,13 +21,13 @@ This repository includes the data and the analysis I performed during my master 
 ### QMRA based on genomic data
 #### Data  📔
 <ul>
-  <li><a href = 'https://github.com/Raquel-Costa/intern_dtu/blob/main/genomic_data_QMRA/wgs_cheese_data.xlsx'>Cheese WGS samples</a> - whole genome sequencing data and additional information from cheese samples obtained from NCBI database and ENA browser</li>
+  <li><a href = 'https://github.com/Raquel-Costa/intern_dtu/blob/main/genomic_data_QMRA/genomic_data.xlsx'>Cheese WGS samples</a> - whole genome sequencing data and additional information from cheese samples obtained from NCBI database and ENA browser</li>
 </ul>
 
   
 #### Analysis Performed 🕵
 <ul>
-  <li><a href = 'https://github.com/Raquel-Costa/intern_dtu/blob/main/genomic_data_QMRA/assembly_quality.xlsx'>QC metrics </a> - quality control metrics from assembly performed on the WGS data on cheese</li>
+  <li><a href = 'https://github.com/Raquel-Costa/intern_dtu/blob/main/genomic_data_QMRA/genomic_data.xlsx'>QC metrics </a> - quality control metrics from assembly performed on the WGS data on cheese on the assembly_QC sheet</li>
 </ul>
 
   
