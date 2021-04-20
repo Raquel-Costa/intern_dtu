@@ -26,18 +26,42 @@ This repository includes the data and the analysis I performed during my master 
     <li>wgs_cheese_related – cheese, environmental and multi-ingredient samples available (all related to cheese). All samples from environment and multi-ingredient are marked in yellow</li>
     <li>wgs_cheese – cheese only samples available (the samples marked in yellow were eliminated). Samples with the sample number (biosample_ss) in red are a part of more than one project (bioproject_s). Samples marked in blue have more than one run number associated to them and all of the run numbers are present in the database</li>
     <li>wgs_data_download – samples downloaded to computerome as for the samples in red, one project data out of the multiple projects the sample was in was used and for the samples marked in blue only one of the run numbers was used (when posible the choice was made based on quality data present in the data base). In pink are the samples were assembly could not be done</li>
-    <li>assembly_qc - quality control metrics after assembly. Marked in yellow are the samples with more than 500 contigs and in red are the samples that have both foward and reverse present in the assembly quality control, so appear duplicated</li>
+    <li>assembly_qc - quality control metrics after assembly. Marked in yellow are the samples with more than 500 contigs</li>
     <li>assembly_high_qc- assembled samples with less than 500 contigs</li>
     <li>assembly_low_qc – assembled samples with more than 500 contigs. Marked in pink are the samples with characteristics that may not be present in the high quality samples</li>
-    <li>metadata_assembly_samples – auxiliar data regarding all the assembled samples. Marked in blue are samples that were considered not to follow the ideal criteria as they were from curd or multi-ingredient that escaped the first triage</li>
-    <li>metadata_samples_with_mlst - auxiliar data regarding the samples to use on PHYLOViZ Online to build the tree<</li>
-    <li>matadata_mlst_failed - auxiliar data regarding the samples that the mlst did not work. Marked in pink is a sample that was mentioned as failed but in fact had a result in the mlst/li>
-  </ul>  
+    <li>metadata_assembly_samples – auxiliar data regarding all the assembled samples</li>
+    <li>metadata_samples_with_mlst - auxiliar data regarding the samples with MLST complete</li>
+    <li>metadata_plus_clinical - auxiliar data regarding the samples with MLST complete plus the auxiliar data regarding the samples with clinical outcome associated and with MLST complete. This will be used on PHYLOViZ Online to build the phylogenetic tree</li>
+    <li>prokka_roary - samples where prokka and roary where performed without any issues</li>
+  </ul> 
+  
+  <li>Metadata - auxiliar data used to build the phylogenetic trees</li>
+  
+
 </ul>
+
 
   
 #### Analysis Performed 🕵
 
+<ul>
+  <li>Bioinformatics:</li>
+  
+  <ul>
+    <li>MLST results - results from the 7 gene MLST both in the NCBI samples and the samples with the clinical outcome associated</li>
 
+    <li>*.Rtab - multiple files obtained in the Roary output</li>
+  
+    <li>Roary plots - an R script where the *.Rtab files were used to create plots</li>
+    
+  </ul>
+  
+  <li>Machine Learning</li>
+  
+  <ul>
+  
+  </ul>
+  
+</ul>
   
   

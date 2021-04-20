@@ -1,0 +1,356 @@
+sample_id	cheese_full_type	animal_origin	milk_treatment	cheese_classification	country	region	colection_year	clinical_source	clinical_freq
+SRR1016596.fa	 cheese				USA	California	2013		
+SRR10484526.fa	 cheese				USA	Iowa	2019		
+SRR10484529.fa	 cheese				USA	Iowa	2019		
+SRR10484557.fa	 cheese				USA	Iowa	2019		
+SRR10484641.fa	 cheese				USA	Iowa	2019		
+SRR10484646.fa	 cheese				USA	Iowa	2019		
+SRR10484657.fa	 cheese				USA	Iowa	2019		
+SRR10484705.fa	 cheese				USA	Iowa	2019		
+SRR10489681.fa	 cheese				USA	Iowa	2019		
+SRR1068558.fa	 cheese				USA	Pennsylvania	2012		
+SRR1068561.fa	 ricotta cheese			semi-soft or soft	USA	Connecticut	No data		
+SRR1068583.fa	 ricotta cheese			semi-soft or soft	USA	Connecticut	No data		
+SRR10804323.fa	 raw milk cheese		raw		USA	New York	2019		
+SRR10810367.fa	 salvadorian string cheese				USA	Florida	2009		
+SRR10843674.fa	 cheese				USA	Pennsylvania	2019		
+SRR11362440.fa	 sheeps milk cheese	sheep			Bulgaria		2008		
+SRR1177313.fa	 sheeps milk cheese	sheep			Bulgaria		2008		
+SRR1181539.fa	 fresh cheese curd				USA	Virginia	2014		
+SRR1181535.fa	 cheese				USA	Maryland	2014		
+SRR1181538.fa	 cheese				USA	Maryland	2014		
+SRR1181556.fa	 cheese				USA	Maryland	2014		
+SRR1181561.fa	 cheese				USA	Maryland	2014		
+SRR1181568.fa	 cheese				USA	Maryland	2014		
+SRR1182219.fa	 fresh cheese curd				USA	Virginia	2014		
+SRR1182220.fa	 fresh cheese curd				USA	Virginia	2014		
+SRR1182221.fa	 fresh cheese curd				USA	Virginia	2014		
+SRR1182222.fa	 fresh cheese curd				USA	Virginia	2014		
+SRR1182223.fa	 fresh cheese curd				USA	Virginia	2014		
+SRR1182224.fa	 fresh cheese curd				USA	Virginia	2014		
+SRR1182225.fa	 fresh cheese curd				USA	Virginia	2014		
+SRR1182716.fa	 fresh cheese curd				USA	Virginia	2014		
+SRR1187420.fa	 fresh cheese curd				USA	Virginia	2014		
+SRR1187425.fa	 fresh cheese curd				USA	Virginia	2014		
+SRR1187427.fa	 fresh cheese curd				USA	Virginia	2014		
+SRR1187445.fa	 fresh cheese curd				USA	Virginia	2014		
+SRR1187587.fa	 fresh cheese curd				USA	Virginia	2014		
+SRR1187589.fa	 fresh cheese curd				USA	Virginia	2014		
+SRR1187613.fa	 fresh cheese curd				USA	Virginia	2014		
+SRR1187616.fa	 fresh cheese curd				USA	Virginia	2014		
+SRR1198878.fa	 fresh round cheese			soft	USA	Washington	2014		
+SRR1198952.fa	 aged hard cheese			hard	USA	Washington	2014		
+SRR1200763.fa	 spanish style cheese				USA	New York	2012		
+SRR12125022.fa	 raw milk cheese		raw		USA	New York	2020		
+SRR12125023.fa	 raw milk cheese		raw		USA	New York	2020		
+SRR12125094.fa	 raw milk cheese		raw		USA	New York	2020		
+SRR12125095.fa	 raw milk cheese		raw		USA	New York	2020		
+SRR12125804.fa	 raw milk cheese		raw		USA	New York	2020		
+SRR1220730.fa	 cheddar cheese ball	cow		hard	USA	Minnesota	2014		
+SRR1220820.fa	 cheddar cheese ball	cow		hard	USA	Minnesota	2014		
+SRR12572868.fa	 cheese				USA		2020		
+SRR1283973.fa	 cheese				No data		2012		
+SRR1283975.fa	 cheese				No data		2012		
+SRR13080043.fa	 cream cheese			soft	No data		2020		
+SRR13486047.fa	 cheese				USA	New York	2020		
+SRR13744893.fa	 cheese				USA	Connecticut	2021		
+SRR13744900.fa	 cheese				USA	Connecticut	2021		
+SRR1378347.fa	 cheese				USA	Connecticut	2021		
+SRR1378351.fa	 fontina cheese	cow	raw	semi-soft	Italy		2014		
+SRR1378352.fa	 fontina cheese	cow	raw	semi-soft	Italy		2014		
+SRR1378353.fa	 fontina cheese	cow	raw	semi-soft	Italy		2014		
+SRR1378358.fa	 fontina cheese	cow	raw	semi-soft	Italy		2014		
+SRR1449928.fa	 fontina cheese	cow	raw	semi-soft	Italy		2014		
+SRR1509605.fa	 ricotta cheese			semi-soft or soft	USA		1987		
+SRR1509629.fa	 ricotta cheese			semi-soft or soft	USA		1987		
+SRR1509634.fa	 ricotta cheese			semi-soft or soft	USA	New York	1987		
+SRR1509635.fa	 mexican soft cheese			soft	USA		No data		
+SRR1509665.fa	 mexican soft cheese			soft	USA		No data		
+SRR1575054.fa	 cheese				USA	Oregon	2014		
+SRR1597473.fa	 cheese				USA	Oregon	2014		
+SRR1609994.fa	 white cheese				USA		1994		
+SRR1610006.fa	 mexican-style soft cheese			soft	USA		1994		
+SRR1610011.fa	 white cheese				USA	Washington	1994		
+SRR1610013.fa	 r. salinas cheese				USA		1994		
+SRR1610014.fa	 white cheese				USA		1994		
+SRR1610015.fa	 white cheese				USA		1994		
+SRR1610017.fa	 white cheese				USA		1994		
+SRR1745606.fa	 soft cheese			soft	France		2014		
+SRR1763800.fa	 soft cheese			soft	France		2014		
+SRR1767818.fa	 cheese				USA	California	2014		
+SRR1767827.fa	 cheese				USA	California	2014		
+SRR1783158.fa	 cheese				USA	California	2014		
+SRR1783164.fa	 cheese				USA	California	2014		
+SRR1805602.fa	 cheese				USA	Washington	2010		
+SRR1812795.fa	 aged raw milk cheese		raw		USA	New Hampshire	2015		
+SRR1812797.fa	 aged raw milk cheese		raw		USA	New Hampshire	2015		
+SRR1812798.fa	 aged raw milk cheese		raw		USA	New Hampshire	2015		
+SRR1812875.fa	 aged raw milk cheese		raw		USA	New Hampshire	2015		
+SRR1818017.fa	mold-ripened blue-veined cheese				USA	California	2001		
+SRR1917075.fa	 cotija cheese	cow			Mexico		2003		
+SRR1947009.fa	 soft white mexican cheese			soft	USA	Texas	2003		
+SRR1980616.fa	 cheese				USA	Florida	2014		
+SRR1980624.fa	 cheese				USA	Florida	2014		
+SRR1982199.fa	 semi soft cheese			semi-soft	France		2013		
+SRR2422721.fa	 queso fresco			soft	USA	New York	No data		
+SRR2533762.fa	 cheese				USA	Florida	2013		
+SRR2584342.fa	 fresh cheese curd				USA	Florida	2011		
+SRR2584343.fa	 cheese				USA	Florida	2011		
+SRR2584346.fa	 cheese				USA	Florida	2011		
+SRR2585425.fa	 cheese				USA	California	2012		
+SRR2924557.fa	 semi soft cheese			semi-soft	USA	Maryland	2013		
+SRR2924558.fa	 semi soft cheese			semi-soft	USA	Maryland	2013		
+SRR2924593.fa	 soft ripened cheese			soft	USA	Maryland	2013		
+SRR2924594.fa	 soft ripened cheese			soft	USA	Maryland	2013		
+SRR2924601.fa	 fresh cheese			soft	USA	Maryland	2013		
+SRR2924604.fa	 soft ripened cheese			soft	USA	Maryland	2013		
+SRR2962368.fa	 american curd cheese				USA	Florida	2015		
+SRR3108926.fa	 ripened pasteurized milk semi-soft ricotta cheese		pasteurized	semi-soft	Canada		2011		
+SRR3109060.fa	raw milk cheese		raw		Canada		2011		
+SRR3112633.fa	pasteurized milk ripened semi-soft mozzarella (bocconcini)		pasteurized	semi-soft	Canada		2004		
+SRR3113964.fa	 ripened pasteurized milk soft cream cheese		pasteurized	soft	Canada		2002		
+SRR3173363.fa	 robiola pineta cheese			soft	Italy		2008		
+SRR3173364.fa	 robiola pineta cheese			soft	Italy		2008		
+SRR3173365.fa	 robiola pineta cheese			soft	Italy		2008		
+SRR3173373.fa	 fresh cheese			soft	USA	New York	2009		
+SRR3173374.fa	 cheese				Poland		2009		
+SRR3173375.fa	 queso fresco				USA	New Jersey	2009		
+SRR3173379.fa	 queso fresco			soft	USA	New Jersey	2009		
+SRR3181837.fa	 blue cheese				USA		2011		
+SRR3181839.fa	 blue cheese				USA		2011		
+SRR3215346.fa	 cheese				Italy		2003		
+SRR3215348.fa	 cheese				Italy		2011		
+SRR3215349.fa	 cheese				Italy		2011		
+SRR3215351.fa	 cheese				Italy		2011		
+SRR3215364.fa	 raw milk cheese		raw		Italy		2011		
+SRR3345538.fa	 cheese				Italy		2012		
+SRR3345539.fa	 cheese				Italy		2012		
+SRR3345818.fa	 cheese				Italy		2013		
+SRR3345855.fa	 cheese				Italy		2014		
+SRR3345865.fa	 cheese				Italy		2014		
+SRR3345876.fa	 cheese				Italy		2012		
+SRR3345906.fa	 cheese				Italy		2011		
+SRR3345918.fa	 cheese				Italy		2011		
+SRR3345928.fa	 cheese				Italy		2011		
+SRR3345929.fa	 cheese				Italy		2011		
+SRR3372408.fa	 shredded cheddar cheese	cow		hard	USA	California	2011		
+SRR3391877.fa	 cheese				Italy		2003		
+SRR3391886.fa	 bovine cheese				Italy		2003		
+SRR3395016.fa	 cheese				Chile		2009		
+SRR3606562.fa	 queso fresco			soft	USA	Michigan	2009		
+SRR3606570.fa	 fresh mexican style cheese			soft	Mexico		2007		
+SRR3606573.fa	 fresh mexican style cheese			soft	Italy		2014		
+SRR3634424.fa	 cheese				USA	Florida	2009		
+SRR3659465.fa	 fresh white cheese			soft	Mexico		2003		
+SRR3659466.fa	 mexican white cheese				Mexico		2004		
+SRR3660092.fa	 queso fresco cheese			soft	USA	Florida	2005		
+SRR3928667.fa	 queso seco cheese				USA	Florida	2007		
+SRR3930180.fa	 sheep's milk ricotta cheese	sheep		semi-soft or soft	Italy		2004		
+SRR3930183.fa	 mexican cheese				Mexico		2003		
+SRR3930184.fa	 mexican cheese				Mexico		2003		
+SRR3945509.fa	 morbier cheese (aged over 60 days)	cow		semi-soft	France		2010		
+SRR3945510.fa	 queso fresco cheese			soft	USA	New York	1905		
+SRR3945582.fa	 oaxaca string cheese	cow	pasteurized	semi-hard	USA	New Jersey	2010		
+SRR3945590.fa	 ricotta cheese			semi-soft or soft	USA	New Jersey	2012		
+SRR3945591.fa	 ricotta cheese			semi-soft or soft	USA	New Jersey	2012		
+SRR3945594.fa	 moliterno al tartufo cheese	sheep		semi-hard or hard	Italy		2012		
+SRR3945595.fa	 bianco\, brie-style cheese	cow		semi-hard	USA	New York	2012		
+SRR3945599.fa	 cheese from sheep milk	sheep			Italy		2012		
+SRR3945600.fa	 gorgonzola dolce cheese	cow		soft	Italy		2013		
+SRR3945602.fa	 gouda cheese wheel	cow		semi-hard or hard	USA	New York	2013		
+SRR3995860.fa	 queso cotija	cow			USA	Wisconsin	2011		
+SRR4031386.fa	 cheese curd				USA	Florida	2004		
+SRR4098791.fa	 shredded mozzarella cheese			semi-soft	USA	Illinois	2003		
+SRR4301094.fa	 cheese				USA	Florida	2004		
+SRR5000317.fa	 soft cheese			soft	USA	Minnesota	2013		
+SRR5000319.fa	 soft cheese			soft	USA	Minnesota	2013		
+SRR5066070.fa	 hard cheese			hard	USA	Minnesota	2013		
+SRR5066072.fa	 blue cheese				USA	Minnesota 	2013		
+SRR5085096.fa	 bovine cheese blue	cow			Italy		2006		
+SRR5105955.fa	 goat cheese	goat			USA	Pennsylvania	2016		
+SRR5182487.fa	 cotija cheese	cow			Mexico 		2010		
+SRR5184994.fa	 cotija cheese	cow			Mexico 		2010		
+SRR5251050.fa	cheese				USA		2017		
+SRR5282220.fa	 soft cheese			soft	USA		2017		
+SRR5341553.fa	 blue cheese				USA	Idaho	2001		
+SRR5341885.fa	 cheese				USA	New York	2017		
+SRR5342838.fa	 blue cheese crumbles				USA	Idaho	2001		
+SRR5342839.fa	 blue cheese				USA	Idaho	2001		
+SRR5344980.fa	 hard cheese			hard	USA		2017		
+SRR5378787.fa	 spreadable cheese			soft	USA	Illinois	2001		
+SRR5378819.fa	 raw milk cheese		raw		USA	New York	2017		
+SRR5380992.fa	 cheese				USA	New York	2009		
+SRR5486795.fa	 cubed cheddar cheese	cow		hard	USA	California	2011		
+SRR5494839.fa	 cheese				USA	Michigan	2011		
+SRR5494844.fa	 cheese				USA	Michigan	2011		
+SRR5494845.fa	 cheese				USA	Michigan	2011		
+SRR5629166.fa	 cheese\, mexican soft			soft	USA	New Jersey	2009		
+SRR5645596.fa	 cheese				USA	Michigan	2012		
+SRR5645600.fa	 cheese				USA	Michigan	2012		
+SRR5646644.fa	 cheese				USA	New York	2008		
+SRR5663603.fa	 cheese				USA	Michigan	2012		
+SRR5663634.fa	 cheese				USA	Michigan	2012		
+SRR5667286.fa	 cotija cheese	cow			Mexico		2010		
+SRR5676318.fa	 cheese				USA	California	2012		
+SRR5817980.fa	 white cheese				USA	Florida	2002		
+SRR5947665.fa	 cheese				USA	Washington	2010		
+SRR5985519.fa	 cheese				USA	Washington	2010		
+SRR5985678.fa	 cheese				USA	Washington	2010		
+SRR5990406.fa	 cheese				USA	Washington	2010		
+SRR6207491.fa	 cheese				USA	Washington	2010		
+SRR6224689.fa	 pasteurized milk queso fresco cheese wheels (16 oz) in vac-packed plastic		pasteurized	soft	USA	Washington	2010		
+SRR6236574.fa	 raw milk cheese-monterey jack	cow	raw	semi-hard	USA	New York	2017		
+SRR6288265.fa	 soft white mexican cheese			soft	USA	Texas	2003		
+SRR6288283.fa	 home-made cheese				Mexico		2003		
+SRR6321747.fa	 ricotta piatta cheese			semi-soft or soft	Italy		2003		
+SRR6321790.fa	 raw milk cheese		raw		USA	New York	2017		
+SRR6325477.fa	 raw milk cheese		raw		USA	New York	2017		
+SRR6344350.fa	 swiss cheese				USA	Florida	2000		
+SRR6366187.fa	 goat cheese	goat			USA	California	2003		
+SRR6436646.fa	 le vigneron marc cheese				France		2010		
+SRR6443386.fa	 mexican soft cheese			soft	USA		2003		
+SRR6446755.fa	 mexican soft cheese			soft	USA		2003		
+SRR6475359.fa	 asadero cheese	cow		semi-soft	Mexico		2001		
+SRR6475362.fa	 asadero cheese	cow		semi-soft	Mexico		2001		
+SRR6745671.fa	spanish cheese				USA	New York	2012		
+SRR6860656.fa	 raw milk cheese aged 60 days		raw		USA	New York	2018		
+SRR6881693.fa	 soft cheese			soft	Italy		2007		
+SRR8172414.fa	 cheese				USA	Michigan	2018		
+SRR8187275.fa	 cheese				USA	Michigan	2018		
+SRR8187276.fa	 cheese				USA	Michigan	2018		
+SRR8210492.fa	 talleggio cheese	cow		semi-soft	Italy		2005		
+SRR8211561.fa	 brie cheese	cow		soft	France		2004		
+SRR8212882.fa	 cheese				Italy		2003		
+SRR8215997.fa	 semi-soft cheese			semi-soft	Spain		2002		
+SRR8216051.fa	 cow/sheep milk cheese	cow and sheep			Portugal		2004		
+SRR8216056.fa	 cow/sheep milk cheese	cow and sheep			Portugal		2004		
+SRR8216059.fa	 gorgonzola cheese	cow		soft	Italy		2005		
+SRR8216314.fa	 queso fresco			soft	USA	New York	2004		
+SRR8216391.fa	 talleggio cheese	cow		semi-soft	Italy		2005		
+SRR8216395.fa	 fermier goat cheese	goat			Israel		2002		
+SRR8216405.fa	 bucheron goat cheese	goat		soft	Israel		2002		
+SRR8235317.fa	 fermier goat cheese	goat			Israel		2002		
+SRR8235320.fa	 pasteurized cows' milk cheese	cow	pasteurized		USA	New York	2018		
+SRR8235343.fa	 camembert goat cheese	goat		soft	Israel		2002		
+SRR8235369.fa	 mozarella cheese			semi-soft	USA	Louisiana	2002		
+SRR8235627.fa	 bucheron goat cheese	goat		soft	Israel		2002		
+SRR8535384.fa	 quesillo oaxaca string cheese	cow	pasteurized	semi-hard	Mexico		2010		
+SRR8535474.fa	 quesillo oaxaca string cheese	cow	pasteurized	semi-hard	Mexico		2010		
+SRR8767216.fa	 cheese				Chile		2016		
+SRR8767231.fa	 cheese				Chile		2016		
+SRR8767292.fa	 cheese				Chile		2017		
+SRR8767294.fa	 cheese				Chile		2017		
+SRR8767295.fa	 cheese				Chile		2017		
+SRR8767298.fa	 cheese				Chile		2017		
+SRR8767299.fa	 cheese				Chile		2017		
+SRR8767309.fa	 cheese				Chile		2017		
+SRR8767310.fa	 cheese				Chile		2016		
+SRR8767312.fa	 cheese				Chile		2017		
+SRR8767314.fa	 cheese				Chile		2016		
+SRR8767316.fa	 cheese				Chile		2016		
+SRR8767327.fa	 cheese				Chile		2016		
+SRR8767330.fa	 cheese				Chile		2016		
+SRR8767333.fa	 cheese				Chile		2016		
+SRR8767338.fa	 cheese				Chile		2017		
+SRR8767396.fa	 cheese				Chile		2016		
+SRR8767575.fa	 cheese				Chile		2016		
+SRR8767730.fa	 cheese				Chile		2016		
+SRR8767761.fa	 cheese				Chile		2016		
+SRR8767770.fa	 cheese				Chile		2016		
+SRR8767781.fa	 cheese				Chile		2016		
+SRR8767782.fa	 cheese				Chile		2016		
+SRR8767785.fa	 cheese				Chile		2016		
+SRR8767791.fa	 cheese				Chile		2016		
+SRR8767792.fa	 cheese				Chile		2016		
+SRR8767794.fa	 cheese				Chile		2016		
+SRR8767795.fa	 cheese				Chile		2016		
+SRR8767797.fa	 cheese				Chile		2016		
+SRR8767799.fa	 cheese				Chile		2016		
+SRR8837400.fa	 cheese				Chile		2016		
+SRR8837414.fa	 cheese				Chile		2016		
+SRR8837515.fa	 cheese				Chile		2016		
+SRR8837524.fa	 cheese				Chile		2016		
+SRR8838736.fa	 cheese				Chile		2016		
+SRR8838742.fa	 cheese				Chile		2016		
+SRR8838745.fa	 cheese				Chile		2016		
+SRR8838748.fa	 cheese				Chile		2016		
+SRR8838749.fa	 cheese				Chile		2016		
+SRR8838750.fa	 cheese				Chile		2016		
+SRR9335703.fa	 queso fresco cotija	cow			USA	New York	2019		
+SRR955385.fa	 cheese				USA	Minnesota	2013		
+SRR955387.fa	 cheese				USA	Minnesota	2013		
+SRR9732314.fa	 cheese				Uruguay		2011		
+SRR975370.fa	 goat cheese	goat			Spain	 	2009		
+SRR3659467.fa	mexican white cheese				Mexico		2004		
+SRR5378820.fa	raw milk cheese				USA	New York	2017		
+SRR6805490.fa	mexican soft cheese				USA	New Jersey	2009		
+ERR1100936.fa	Human				France			CNS infection	65.6
+ERR1100938.fa	Human				France			CNS infection	65.6
+ERR1100943.fa	Human							CNS infection	65.6
+ERR1100965.fa	Animal				France				65.6
+ERR1100970.fa	Animal				France				50.9
+ERR1100909.fa	Human				France			MN infection	50.9
+ERR1100934.fa	Human								50.9
+ERR1100944.fa	Human				France			MN infection	52.2
+ERR1100935.fa	Human				France			CNS infection	42.5
+ERR1100910.fa	Animal				France				42.5
+ERR1100930.fa	Human				France			CNS infection	-
+ERR1100939.fa	Human				France			MN infection	71.3
+ERR1100967.fa	Animal				France				71.3
+ERR1100911.fa	Human				France			MN infection	71.3
+ERR1100912.fa	Human				France			MN infection	37.1
+ERR1100968.fa	Animal								37.1
+ERR1100921.fa	Animal				France				45.2
+ERR1100941.fa	Human				France			Bacteremia	45.2
+ERR1100918.fa	Animal				France				45.2
+ERR1100954.fa	Human				France			CNS infection	61.5
+ERR1100942.fa	Human				France			CNS infection	61.5
+ERR1100913.fa	Human				France			CNS infection	61.5
+ERR1100951.fa	Human							CNS infection	61.5
+ERR1100923.fa	Human				France			Bacteremia	41.9
+ERR1100924.fa	Human				France			Bacteremia	58.1
+ERR1100922.fa	Food				Colombia				
+ERR1100932.fa	Food				Tunisia				58.2
+ERR1100948.fa	Human								21.7
+ERR1100933.fa	Food								7
+ERR1100947.fa	Human				France			Bacteremia	7
+ERR1100966.fa	Animal								7
+ERR1100919.fa	Animal				France				7
+ERR1100974.fa					France			MN infection	7
+ERR1100946.fa	Human				France			Bacteremia	29.3
+ERR1100937.fa	Human				France			MN infection	46.2
+ERR1100920.fa	Animal				France 				46.2
+ERR1100917.fa	Animal				France				32.2
+ERR1100945.fa	Human								32.2
+ERR1100952.fa	Human				France			CNS infection	
+ERR1100961.fa	Food								0
+ERR1100962.fa	Food								0
+ERR1100963.fa	Food								0
+ERR1100964.fa	Food (cheese)								0
+ERR1100929.fa	Environment				Colombia				
+ERR1100928.fa	Human				France			Bacteremia	25
+ERR1100931.fa	Animal								20.3
+ERR1100927.fa	Human								35.9
+ERR1100958.fa	Food (pork)								2.6
+ERR1100959.fa	Food (pork, production environment)								2.6
+ERR1100960.fa	Food (ready-to-eat food, production environment)								2.6
+ERR1100926.fa	Human				France			Bacteremia	31
+ERR1100925.fa	Human				France			CNS infection	40.7
+ERR1100914.fa	Animal				France				68.2
+ERR1100949.fa	Human				France			CNS infection	68.2
+ERR1100953.fa									68.2
+ERR1100940.fa	Human				France			Bacteremia	45
+ERR1100915.fa	Human								45
+ERR1100955.fa	Human				France				
+ERR1100969.fa	Animal								16
+ERR1100916.fa	Animal				France				16
+ERR1100971.fa	Animal								16
+ERR1100950.fa	Human				France			CNS infection	16
+ERR1100972.fa	Human				France			MN infection	16
+ERR1100973.fa	Human				France			MN infection	16
+ERR1100975.fa	Human				France			MN infection	16
+ERR1100976.fa	Human				France			MN infection	16
+ERR1100956.fa	Food								
+ERR1100957.fa	Food								
+ERR1100977.fa									
+	

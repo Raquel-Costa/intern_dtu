@@ -1,3 +1,6 @@
+#set working directory to where the data is saved
+setwd("C:/Users/rakac/OneDrive - Universidade de Lisboa/Faculdade/6 ano/Classic QMRA/intern_dtu/classic_QMRA")
+
 #libraries
 library(readxl) #used to read data
 library(dplyr)
@@ -5,6 +8,10 @@ library(tidyr) #used to get the gather function
 library(mc2d) #used to get the functions to obtain random samples
 library(MCMCglmm) #used to get the functions to obtain random samples
 library(Jmisc)
+library(ggplot2) #make plots
+library(plotly) #make plots interactive
+library(stringr) #separate a column with characters into multiple columns
+library(ggsci) #add color palette on plots
 
 #Serra da Estrela cheese data
 prev = read_excel("serra_da_estrela_cheese.xlsx", sheet = "prevalence") #data on prevalence of L.monocytogenes in the cheese
@@ -15,6 +22,17 @@ EGR5 = read_excel("serra_da_estrela_cheese.xlsx", sheet = "EGR5") #data on the e
 temp = read_excel("serra_da_estrela_cheese.xlsx", sheet = "storage_temperature") #data on the domestic storage temperature of the cheese
 time = read_excel("serra_da_estrela_cheese.xlsx", sheet = "storage_time") #data on the domestic storage time of the cheese
 DR = read_excel("serra_da_estrela_cheese.xlsx", sheet = "dose_response") #data on the r parameter of the dose response model
+
+ggplot(conso,aes(x=Age, y=eating_occasions_year, fill = Gender)) +
+  geom_col(position="dodge") +
+  labs(title = "Number of eating occasions per year per age and gender",
+       y= "Number of eating occasions per year")+
+  theme(plot.title = element_text(margin = margin(10,0,10,0)),
+        axis.title.x = element_text(vjust=-0.35),
+        axis.title.y = element_text(vjust=3))
+
+#be able to always reproduce the same values
+set.seed(1)
 
 #Define the model variables
 runs=1000000 #number of times that some functions, which get random samples, will be run
@@ -68,9 +86,52 @@ df_DR$DoseCont=rep(DoseCont,14)
 ##add a column with the gender information
 df_DR$Gender=rep(c("Female","Male"),each=nrow(df_DR)/2)
 
+print(df_DR)
 
 
+##make a plot for the probability of illness by each dose
+###separate path column into 3 different columns and keep the one on age and the one on gender
+df_DR_gender <- as.data.frame(str_split_fixed(df_DR$Path, " ", 3))[c(1,2)]
+names(df_DR_gender) = c("gender", "Age")
 
+###change some information to obtain a legend with the correct order in the plot that will be constructed
+df_DR_gender <- df_DR_gender %>% 
+  mutate_all(funs(str_replace(., ">75", "75+")))
+df_DR_gender <- df_DR_gender %>% 
+  mutate_all(funs(str_replace(., "5-14", "05-14")))
+df_DR_gender <- df_DR_gender %>% 
+  mutate_all(funs(str_replace(., "1-4", "01-04")))
+
+###add the df_DR information to the table created before with the gender and age seperatly
+df_DR_gender <- df_DR_gender %>% 
+  cbind(df_DR[c(2,4)])
+
+###build a plot
+dose_resp <- ggplot(df_DR_gender, aes(x = DoseCont, y = prob*100, color = Age)) +
+  geom_line() +
+  facet_grid(~gender)+
+  theme(panel.spacing = unit(1, "lines"),
+        plot.title = element_text(size=11, hjust = 0.5),
+        legend.title=element_text(size=10))+
+  labs(title = "Dose-response model by gender and age",
+       x = "",
+       y="")+
+  scale_color_npg()
+
+###make the plot interactive
+ggplotly(dose_resp) %>%
+  layout(margin = margin(l =1),
+         font=list(size = 10),
+         yaxis = list(title = paste0(c(rep("&nbsp;", 2),
+                                       "Probility of illness (%)",
+                                       rep("&nbsp;", 2),
+                                       rep("\n&nbsp;", 1)),
+                                     collapse = "")),
+         xaxis = list(title = paste0(c(rep("&nbsp;", 55),
+                                       "Dose (log10 CFU)",
+                                       rep("&nbsp;", 2),
+                                       rep("\n&nbsp;", 1)),
+                                     collapse = "")))
 
 
 #Exposure Assessment ----------------------------------------------------------------------------------------------------------------------
@@ -155,7 +216,6 @@ contamfun = function(runs, shift = 0){
     rosso(s_time,EGRr,C0r,lag=0,Nmax)
   }
   f_concr=f_concfun(1)
-  # f_concr=repRow(f_concr, 14)
   
   
   ##--Ingested dose--
@@ -197,17 +257,113 @@ contamfun = function(runs, shift = 0){
   df_pdf_dose=df_pdf_dose%>%
     group_by(Path)%>%
     mutate(cdf=cumsum(prob))
+  print(df_pdf_dose)
+  
+  #make a plot for the probability of ingesting each dose
+  ##separate path column into 3 different columns and keep the one on age and the one on gender
+  df_pdf_dose_gender <- as.data.frame(str_split_fixed(df_pdf_dose$Path, " ", 3))[c(1,2)]
+  names(df_pdf_dose_gender) = c("gender", "Age")
+
+  ###change some information to obtain a legend with the correct order in the plot that will be constructed
+  df_pdf_dose_gender <- df_pdf_dose_gender %>%
+    mutate_all(funs(str_replace(., ">75", "75+")))
+  df_pdf_dose_gender <- df_pdf_dose_gender %>%
+    mutate_all(funs(str_replace(., "5-14", "05-14")))
+  df_pdf_dose_gender <- df_pdf_dose_gender %>%
+    mutate_all(funs(str_replace(., "1-4", "01-04")))
+
+  ###add the df_DR information to the table created before with the gender and age seperatly
+  df_pdf_dose_gender <- df_pdf_dose_gender %>%
+    cbind(df_pdf_dose[2]) %>%
+    cbind(df_DR[4])
+
+  ###build a plot
+  dose_prob <- ggplot(df_pdf_dose_gender, aes(x = DoseCont, y = prob*100, color = Age)) +
+    geom_line() +
+    facet_grid(~gender)+
+    theme(panel.spacing = unit(1, "lines"),
+          plot.title = element_text(size=11, hjust = 0.5),
+          legend.title=element_text(size=10))+
+    labs(title = "Probability of ingesting each dose of L.monocytogenes by gender and age",
+         x = "",
+         y="")+
+    scale_color_npg()
+
+  ###make the plot interactive
+  dose_prob_int <- ggplotly(dose_prob) %>%
+    layout(margin = margin(l =1),
+           font=list(size = 10),
+           yaxis = list(title = paste0(c(rep("&nbsp;", 2),
+                                         "Probility of ingestion (%)",
+                                         rep("&nbsp;", 2),
+                                         rep("\n&nbsp;", 1)),
+                                       collapse = "")),
+           xaxis = list(title = paste0(c(rep("&nbsp;", 55),
+                                         "Dose (Log10 CFU)",
+                                         rep("&nbsp;", 2),
+                                         rep("\n&nbsp;", 1)),
+                                       collapse = "")))
   
   
-  
-  
+  print(dose_prob_int)
+
+
   
   ##Risk characterization-----------------------------------------------------------------------------------------------------------------------
   #create a new data frame that receives the information regarding the probability of ingesting each dose by population
   df_pdf_risk=df_pdf_dose
   
-  #add a new column called risk that corresponds to the probability of ingesting each dose by population multiplied by the probability of illness for each dose obtained from the dose response model performed at the beginning
+  #add a new column called risk that corresponds to the probability of ingesting each dose by population multiplied by the probability of illness for each by population dose obtained from the dose response model performed at the beginning
   df_pdf_risk$risk=df_pdf_dose$prob*df_DR$prob
+  
+  print(df_pdf_risk)
+  
+  #make a plot for the risk for each dose by population
+  ##separate path column into 3 different columns and keep the one on age and the one on gender
+  df_pdf_risk_gender <- as.data.frame(str_split_fixed(df_pdf_risk$Path, " ", 3))[c(1,2)]
+  names(df_pdf_risk_gender) = c("gender", "Age")
+  
+  ###change some information to obtain a legend with the correct order in the plot that will be constructed
+  df_pdf_risk_gender <- df_pdf_risk_gender %>%
+    mutate_all(funs(str_replace(., ">75", "75+")))
+  df_pdf_risk_gender <- df_pdf_risk_gender %>%
+    mutate_all(funs(str_replace(., "5-14", "05-14")))
+  df_pdf_risk_gender <- df_pdf_risk_gender %>%
+    mutate_all(funs(str_replace(., "1-4", "01-04")))
+  
+  ###add the df_DR information to the table created before with the gender and age seperatly
+  df_pdf_risk_gender <- df_pdf_risk_gender %>%
+    cbind(df_pdf_risk[5]) %>%
+    cbind(df_DR[4])
+  
+  ###build a plot
+  dose_risk <- ggplot(df_pdf_risk_gender, aes(x = DoseCont, y = risk*100, color = Age)) +
+    geom_line()+
+    facet_grid(~gender)+
+    theme(panel.spacing = unit(1, "lines"),
+          plot.title = element_text(size=11, hjust = 0.5),
+          legend.title=element_text(size=10))+
+    labs(title = "Risk of illness by dose ingested per population",
+         x = "",
+         y="")+
+    scale_color_npg()
+  
+  ###make the plot interactive
+  dose_risk_int <- ggplotly(dose_risk) %>%
+    layout(margin = margin(l =1),
+           font=list(size = 10),
+           yaxis = list(title = paste0(c(rep("&nbsp;", 2),
+                                         "Risk (%)",
+                                         rep("&nbsp;", 2),
+                                         rep("\n&nbsp;", 1)),
+                                       collapse = "")),
+           xaxis = list(title = paste0(c(rep("&nbsp;", 55),
+                                         "Dose (Log10 CFU)",
+                                         rep("&nbsp;", 2),
+                                         rep("\n&nbsp;", 1)),
+                                       collapse = "")))
+  
+  print(dose_risk_int)
   
   #create a new data frame that sums all the risks for that population (calculated on the previous step) obtaining 1 risk value for each population
   risk=df_pdf_risk%>%
@@ -220,7 +376,7 @@ contamfun = function(runs, shift = 0){
   #calculate the risk as the the value obtained before times the prevalence and the number of cases as the risk times the number of eating occasions per year
   risk%>%
     mutate(risk=risk*positive_samples,cases=round(risk*TEO))
-
+  
 }
 
 
@@ -230,6 +386,32 @@ rescases=contamfun(runs=runs,shift=shift)
 
 #see the number of expected cases by population
 View(rescases)
+
+#make a plot for the number of expected cases
+##separate path column into 3 different columns and keep the one on age and the one on gender
+rescases_gender <- as.data.frame(str_split_fixed(rescases$Path, " ", 3))[c(1,2)]
+names(rescases_gender) = c("gender", "Age")
+
+###change some information to obtain a legend with the correct order in the plot that will be constructed
+rescases_gender <- rescases_gender %>%
+  mutate_all(funs(str_replace(., ">75", "75+")))
+rescases_gender <- rescases_gender %>%
+  mutate_all(funs(str_replace(., "5-14", "05-14")))
+rescases_gender <- rescases_gender %>%
+  mutate_all(funs(str_replace(., "1-4", "01-04")))
+
+rescases_gender <- rescases_gender %>%
+  cbind(rescases[5])
+
+ggplot(rescases_gender, aes(x=Age, y=cases, fill=gender))+
+  geom_col(position = "dodge")+
+  labs(title = "Number of expected cases per gender and age",
+       y= "Number of expected cases")+
+  guides(fill=guide_legend(title="Gender"))+
+  theme(plot.title = element_text(margin = margin(10,0,10,0)),
+        axis.title.x = element_text(vjust=-0.35),
+        axis.title.y = element_text(vjust=1))+
+  geom_text(aes(label=cases), position=position_dodge(width=0.9), vjust=-0.25)
 
 #see the total number of expected cases
 sum(rescases$cases)
