@@ -35,7 +35,7 @@ This repository includes the data and the analysis I performed during my master 
     <li>prokka_roary - samples where prokka and roary where performed without any issues</li>
   </ul> 
   
-  <li>Metadata - auxiliar data used to build the phylogenetic trees</li>
+  <li><a href = 'https://github.com/Raquel-Costa/intern_dtu/blob/main/genomic_data_QMRA/metadata.txt'>Metadata</a> - auxiliar data used to build the phylogenetic trees</li>
   
 
 </ul>
@@ -48,11 +48,11 @@ This repository includes the data and the analysis I performed during my master 
   <li>Bioinformatics:</li>
   
   <ul>
-    <li>MLST results - results from the 7 gene MLST both in the NCBI samples and the samples with the clinical outcome associated</li>
+    <li><a href = 'https://github.com/Raquel-Costa/intern_dtu/blob/main/genomic_data_QMRA/mlst_complete.txt'>MLST results</a> - results from the 7 gene MLST both in the NCBI samples and the samples with the clinical outcome associated</li>
 
-    <li>*.Rtab - multiple files obtained in the Roary output</li>
+  <li><a href = 'https://github.com/Raquel-Costa/intern_dtu/tree/main/genomic_data_QMRA'>*.Rtab</a> - multiple files obtained in the Roary output</li>
   
-    <li>Roary plots - an R script where the *.Rtab files were used to create plots</li>
+  <li><a href = 'https://github.com/Raquel-Costa/intern_dtu/blob/main/genomic_data_QMRA/roary_plots.R'>Roary plots</a> - an R script where the *.Rtab files were used to create plots</li>
     
   </ul>
   
