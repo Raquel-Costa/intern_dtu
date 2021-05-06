@@ -49,6 +49,10 @@ rosso=function(time,egrm,lag=0,x0,xmax){
   den=1+(xmax/x0 -1)*exp(-egrm*(time-lag))
   log10(xmax/den)
 } 
+
+runs=1000000
+step = 0.1
+DoseCont = seq(0,12,step)
 #################################################
 #################################################
 ####Start of the definition of contamfunc
@@ -243,7 +247,55 @@ contamfun=function(runs,shift=0,meanTemp=5.9,
   df_pdf_dose=df_pdf_dose%>%
     group_by(Path)%>%
     mutate(cdf=cumsum(prob))
-  
+  print(df_pdf_dose)
+  #make a plot for the probability of ingesting each dose
+  ##separate path column into 3 different columns and keep the one on age and the one on gender
+  df_pdf_dose_gender <- as.data.frame(str_split_fixed(df_pdf_dose$Path, " ", 3))[c(1,2)]
+  names(df_pdf_dose_gender) = c("gender", "Age")
+
+  ###change some information to obtain a legend with the correct order in the plot that will be constructed
+  df_pdf_dose_gender <- df_pdf_dose_gender %>%
+    mutate_all(funs(str_replace(., ">75", "75+")))
+  df_pdf_dose_gender <- df_pdf_dose_gender %>%
+    mutate_all(funs(str_replace(., "5-14", "05-14")))
+  df_pdf_dose_gender <- df_pdf_dose_gender %>%
+    mutate_all(funs(str_replace(., "1-4", "01-04")))
+
+  ###add the df_DR information to the table created before with the gender and age seperatly
+  df_pdf_dose_gender <- df_pdf_dose_gender %>%
+    cbind(df_pdf_dose[2]) %>%
+    cbind(df_DR[4])
+
+  ###build a plot
+  dose_prob <- ggplot(df_pdf_dose_gender, aes(x = DoseCont, y = prob*100, color = Age)) +
+    geom_line() +
+    facet_grid(~gender)+
+    theme(panel.spacing = unit(1, "lines"),
+          plot.title = element_text(size=11, hjust = 0.5),
+          legend.title=element_text(size=10))+
+    labs(title = "Probability of ingesting each dose of L.monocytogenes by gender and age",
+         x = "",
+         y="")+
+    scale_color_npg()
+
+  ###make the plot interactive
+  dose_prob_int <- ggplotly(dose_prob) %>%
+    layout(margin = margin(l =1),
+           font=list(size = 10),
+           yaxis = list(title = paste0(c(rep("&nbsp;", 2),
+                                         "Probility of ingestion (%)",
+                                         rep("&nbsp;", 2),
+                                         rep("\n&nbsp;", 1)),
+                                       collapse = "")),
+           xaxis = list(title = paste0(c(rep("&nbsp;", 55),
+                                         "Dose (Log10 CFU)",
+                                         rep("&nbsp;", 2),
+                                         rep("\n&nbsp;", 1)),
+                                       collapse = "")))
+
+
+  print(dose_prob_int)
+
   #df_pdf_dose is a data frame where the vector DoseCont <- seq(0, 12, step) with step=.1
   #is repeated 14 times (subpopulations) and for each dose we attribute its probability...
   
@@ -262,3 +314,5 @@ contamfun=function(runs,shift=0,meanTemp=5.9,
   #risk per serving, teo, and the expected number of cases
 } 
 ####End contam function
+
+

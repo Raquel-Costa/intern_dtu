@@ -1,3 +1,6 @@
+#clean environment
+rm(list = ls())
+
 #set working directory to where the data is saved
 setwd("C:/Users/rakac/OneDrive - Universidade de Lisboa/Faculdade/6 ano/Classic QMRA/intern_dtu/classic_QMRA")
 
@@ -318,53 +321,6 @@ contamfun = function(runs, shift = 0){
   
   print(df_pdf_risk)
   
-  #make a plot for the risk for each dose by population
-  ##separate path column into 3 different columns and keep the one on age and the one on gender
-  df_pdf_risk_gender <- as.data.frame(str_split_fixed(df_pdf_risk$Path, " ", 3))[c(1,2)]
-  names(df_pdf_risk_gender) = c("gender", "Age")
-  
-  ###change some information to obtain a legend with the correct order in the plot that will be constructed
-  df_pdf_risk_gender <- df_pdf_risk_gender %>%
-    mutate_all(funs(str_replace(., ">75", "75+")))
-  df_pdf_risk_gender <- df_pdf_risk_gender %>%
-    mutate_all(funs(str_replace(., "5-14", "05-14")))
-  df_pdf_risk_gender <- df_pdf_risk_gender %>%
-    mutate_all(funs(str_replace(., "1-4", "01-04")))
-  
-  ###add the df_DR information to the table created before with the gender and age seperatly
-  df_pdf_risk_gender <- df_pdf_risk_gender %>%
-    cbind(df_pdf_risk[5]) %>%
-    cbind(df_DR[4])
-  
-  ###build a plot
-  dose_risk <- ggplot(df_pdf_risk_gender, aes(x = DoseCont, y = risk*100, color = Age)) +
-    geom_line()+
-    facet_grid(~gender)+
-    theme(panel.spacing = unit(1, "lines"),
-          plot.title = element_text(size=11, hjust = 0.5),
-          legend.title=element_text(size=10))+
-    labs(title = "Risk of illness by dose ingested per population",
-         x = "",
-         y="")+
-    scale_color_npg()
-  
-  ###make the plot interactive
-  dose_risk_int <- ggplotly(dose_risk) %>%
-    layout(margin = margin(l =1),
-           font=list(size = 10),
-           yaxis = list(title = paste0(c(rep("&nbsp;", 2),
-                                         "Risk (%)",
-                                         rep("&nbsp;", 2),
-                                         rep("\n&nbsp;", 1)),
-                                       collapse = "")),
-           xaxis = list(title = paste0(c(rep("&nbsp;", 55),
-                                         "Dose (Log10 CFU)",
-                                         rep("&nbsp;", 2),
-                                         rep("\n&nbsp;", 1)),
-                                       collapse = "")))
-  
-  print(dose_risk_int)
-  
   #create a new data frame that sums all the risks for that population (calculated on the previous step) obtaining 1 risk value for each population
   risk=df_pdf_risk%>%
     group_by(Path)%>%
@@ -401,7 +357,22 @@ rescases_gender <- rescases_gender %>%
   mutate_all(funs(str_replace(., "1-4", "01-04")))
 
 rescases_gender <- rescases_gender %>%
-  cbind(rescases[5])
+  cbind(rescases[4:5])
+
+risk_plot <- ggplot(rescases_gender, aes(x=Age, y=risk, color=gender, group=gender))+
+  geom_point()+
+  geom_line()+
+  labs(title = "Risk of illness per gender and age",
+      y= "Risk of illness (%)")
+
+ggplotly(risk_plot) %>% 
+  layout(margin = margin(l =1),
+         font=list(size = 12),
+         yaxis = list(title = paste0(c(rep("&nbsp;", 2),
+                                       "Risk",
+                                       rep("&nbsp;", 2),
+                                       rep("\n&nbsp;", 1)),
+                                     collapse = "")))
 
 ggplot(rescases_gender, aes(x=Age, y=cases, fill=gender))+
   geom_col(position = "dodge")+
@@ -415,5 +386,6 @@ ggplot(rescases_gender, aes(x=Age, y=cases, fill=gender))+
 
 #see the total number of expected cases
 sum(rescases$cases)
+
 
 
