@@ -26,6 +26,7 @@ temp = read_excel("serra_da_estrela_cheese.xlsx", sheet = "storage_temperature")
 time = read_excel("serra_da_estrela_cheese.xlsx", sheet = "storage_time") #data on the domestic storage time of the cheese
 DR = read_excel("serra_da_estrela_cheese.xlsx", sheet = "dose_response") #data on the r parameter of the dose response model
 
+#make plot to see TEO
 ggplot(conso,aes(x=Age, y=eating_occasions_year, fill = Gender)) +
   geom_col(position="dodge") +
   labs(title = "Number of eating occasions per year per age and gender",
@@ -228,7 +229,7 @@ contamfun = function(runs, shift = 0){
     rpert(runs, min=size$min, max=size$max, mode=size$mode)
   }
   
-  #apply the function above to all the rows to get the serving size for each age group (the same because our data doesn't make this differentiation)
+  #apply the function above to all the rows to get the serving size for each age group
   serving = sapply(1:14, serving_fun)
   
   #calculate the prevalence of L.monocytogenes in the Serra da Estrela cheese and create a data frame with the information
@@ -276,12 +277,12 @@ contamfun = function(runs, shift = 0){
     mutate_all(funs(str_replace(., "1-4", "01-04")))
 
   ###add the df_DR information to the table created before with the gender and age seperatly
-  df_pdf_dose_gender <- df_pdf_dose_gender %>%
+  df_pdf_dose_gender1 <- df_pdf_dose_gender %>%
     cbind(df_pdf_dose[2]) %>%
     cbind(df_DR[4])
 
   ###build a plot
-  dose_prob <- ggplot(df_pdf_dose_gender, aes(x = DoseCont, y = prob*100, color = Age)) +
+  dose_prob <- ggplot(df_pdf_dose_gender1, aes(x = DoseCont, y = prob*100, color = Age)) +
     geom_line() +
     facet_grid(~gender)+
     theme(panel.spacing = unit(1, "lines"),
@@ -297,7 +298,7 @@ contamfun = function(runs, shift = 0){
     layout(margin = margin(l =1),
            font=list(size = 10),
            yaxis = list(title = paste0(c(rep("&nbsp;", 2),
-                                         "Probility of ingestion (%)",
+                                         "Probability of ingestion (%)",
                                          rep("&nbsp;", 2),
                                          rep("\n&nbsp;", 1)),
                                        collapse = "")),
@@ -309,6 +310,43 @@ contamfun = function(runs, shift = 0){
   
   
   print(dose_prob_int)
+  
+  
+  ###amake another plot but with the cumulative probabilities
+  df_pdf_dose_gender2 <- df_pdf_dose_gender %>%
+    cbind(df_pdf_dose[4]) %>%
+    cbind(df_DR[4])
+  
+  ###build a plot
+  dose_prob2 <- ggplot(df_pdf_dose_gender2, aes(x = DoseCont, y = cdf*100, color = Age)) +
+    geom_line() +
+    facet_grid(~gender)+
+    theme(panel.spacing = unit(1, "lines"),
+          plot.title = element_text(size=11, hjust = 0.5),
+          legend.title=element_text(size=10))+
+    labs(title = "Probability of ingesting each dose of L.monocytogenes by gender and age",
+         x = "",
+         y="")+
+    scale_color_npg()
+  
+  ###make the plot interactive
+  dose_prob_int2 <- ggplotly(dose_prob2) %>%
+    layout(margin = margin(l =1),
+           font=list(size = 10),
+           yaxis = list(title = paste0(c(rep("&nbsp;", 2),
+                                         "Cumulative probability of ingestion (%)",
+                                         rep("&nbsp;", 2),
+                                         rep("\n&nbsp;", 1)),
+                                       collapse = "")),
+           xaxis = list(title = paste0(c(rep("&nbsp;", 55),
+                                         "Dose (Log10 CFU)",
+                                         rep("&nbsp;", 2),
+                                         rep("\n&nbsp;", 1)),
+                                       collapse = "")))
+  
+  
+  print(dose_prob_int2)
+  
 
 
   
